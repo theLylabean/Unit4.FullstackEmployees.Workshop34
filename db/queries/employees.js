@@ -25,7 +25,7 @@ export async function getEmployees() {
  */
 export async function getEmployee(id) {
   const sql = `
-    SELECT * FROM movies WHERE id = $1;
+    SELECT * FROM employees WHERE id = $1;
   `
   const { rows: employee } = await db.query(sql, [id])
   return employee[0]
@@ -38,7 +38,7 @@ export async function getEmployee(id) {
 export async function updateEmployee({ id, name, birthday, salary }) {
   const sql = `
     UPDATE employees
-    SET name = $1, bithday = $2, salary = $3
+    SET name = $1, birthday = $2, salary = $3
     WHERE id = $4
     RETURNING *;
   `
