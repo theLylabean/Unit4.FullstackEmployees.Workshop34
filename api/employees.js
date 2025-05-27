@@ -3,6 +3,11 @@ import express from "express";
 const router = express.Router();
 export default router;
 
+router.route('/').get(async ( req, res ) => {
+    res.send('Welcome to the Fullstack Employees API.')
+})
+
+
 router.route("/").get(async ( req,res ) => {
     const employees = await getEmployees();
     res.send(employees);
